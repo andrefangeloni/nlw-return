@@ -1,3 +1,5 @@
-const App = () => <h1>Hello World!</h1>;
+import { Widget } from './components/Widget';
+
+const App = () => <Widget />;
 
 export default App;
