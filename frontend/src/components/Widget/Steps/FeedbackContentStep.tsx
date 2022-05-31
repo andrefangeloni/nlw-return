@@ -1,9 +1,38 @@
+import { ArrowLeft } from 'phosphor-react';
 import { CloseButton } from '../../Button/Close';
 
-export const FeedbackContentStep = () => (
+import { FeedbackType, feedbackTypes } from '../WidgetForm';
+
+type FeedbackContentStepProps = {
+  feedbackType: FeedbackType;
+  onResetFeedback: () => void;
+};
+
+export const FeedbackContentStep = ({
+  feedbackType,
+  onResetFeedback,
+}: FeedbackContentStepProps) => (
   <>
     <header>
-      <span className="text-xl leading-6">Deixe seu feedback</span>
+      <button
+        type="button"
+        className="top-5 left-5 absolute text-zinc-400 hover:text-zinc-100"
+      >
+        <ArrowLeft
+          weight="bold"
+          className="w-4 h-4"
+          onClick={() => onResetFeedback()}
+        />
+      </button>
+
+      <span className="text-xl leading-6 flex items-center gap-2">
+        <img
+          className="w-6 h-6"
+          alt={feedbackTypes[feedbackType].image.alt}
+          src={feedbackTypes[feedbackType].image.source}
+        />
+        {feedbackTypes[feedbackType].title}
+      </span>
 
       <CloseButton />
     </header>
