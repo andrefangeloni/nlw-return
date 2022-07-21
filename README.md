@@ -1,4 +1,4 @@
-# FidGet
+# FeedGet
 
 ## Screenshot
 
